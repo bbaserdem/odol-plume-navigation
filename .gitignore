@@ -1,0 +1,15 @@
+# Remove virtualenv files
+/bin
+/include
+/lib
+
+# Remove any raw data generated
+/data
+
+# Remove auxillary files from notes
+/notes/**
+!/notes/*.pdf
+!/notes/*.tex
+
+# Remove nvim files
+**tags

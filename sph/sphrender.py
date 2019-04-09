@@ -1,6 +1,7 @@
-#!/usr/bin/python
-"""
-    MYSPH : SPH simulation for odorant plume simulation
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+""" MYSPH : SPH simulation for odorant plume simulation
     Copyright (C) 2019  Batuhan Başerdem
 
     This program is free software: you can redistribute it and/or modify
@@ -17,14 +18,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
-import numpy
+import sys
 
-def print_licence_info():
-    """ Function to print prompt info """
-    print(f"
-    {__name__} Copyright (C) 2019  Batuhan Başerdem
-    This program comes with ABSOLUTELY NO WARRANTY!
-    This is free software, and you are welcome to redistribute it
-    under certain conditions; refer to LICENCE for details.")
-
-
+import numpy as n
+from matplotlib import pyplot as p
