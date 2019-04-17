@@ -18,10 +18,4 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
-import sys
-
 import numpy as n
-
-import sphsolver as solver
-import sphrender as render
-
