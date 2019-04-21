@@ -48,10 +48,9 @@ class VecMat():
         self.dim = len(args)
         self.shape = self.data[0].shape
         self.dtype = self.data[0].dtype
-        self.nnz = 0
+        self.nnz = max(a.nnz for a in self.data)
         # Checks
         for i in range(self.dim):
-            self.nnz = max(self.nnz, self.data[i].nnz)
             # Shape check
             if self.data[i].shape != self.shape:
                 raise VecMatInvalidInputError
@@ -65,9 +64,9 @@ class VecMat():
     def __eq__(self, mat):
         """ Test equality """
         if isinstance(mat, VecMat):
-            if (self.dim == mat.dim) and (self.shape != mat.shape):
+            if (self.dim == mat.dim) and (self.shape == mat.shape):
                 for i in range(self.dim):
-                    if self.data[i] != mat.data[i]:
+                    if (self.data[i] != mat.data[i]).nnz:
                         return False
                 return True
         if isinstance(mat, (n.ndarray, s.spmatrix)):
@@ -203,6 +202,18 @@ class VecMat():
         """ Transpose the index elements """
         out = [a.transpose() for a in self.data]
         return VecMat(*out)
+
+def randomVecMat(shape, dimension, density=0.01):
+    """ Generate a random instance of VecMat """
+    # Generate indices
+    sto = s.random(shape[0], shape[1], density=density, format='csc')
+    nonzero = sto.nnz
+    indices = sto.nonzero()
+    # Generate list of these
+    values = [n.random.rand(nonzero) for _ in range(dimension)]
+    holder = [s.csc_matrix((val, indices), shape=shape) for val in values]
+    return VecMat(*holder)
+
 
 if __name__ == "__main__":
     # Do a display of initialization if called explicitly
