@@ -5,6 +5,7 @@
 
 # Remove any raw data generated
 /data
+**/data
 
 # Remove auxillary files from notes
 /notes/**

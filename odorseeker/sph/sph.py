@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" MYSPH : SPH simulation for odorant plume simulation
+""" ODORSEEKER : SPH simulation for odorant plume simulation
     Copyright (C) 2019  Batuhan Başerdem
 
     This program is free software: you can redistribute it and/or modify
@@ -18,13 +18,14 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
-# Main libraries
-import sys
+# Builtin modules
 
-# Important modules
+# External modules
 import numpy as n
+import scipy.sparse as s
 
-# Self modules
-import sphsolver as solver
-import sphrender as render
+# Custom modules
+import math as mt
+import initialization as it
+import solver as sl
 
