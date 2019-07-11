@@ -7,4 +7,3 @@ for d = length(sto)
 end
 
 end
-

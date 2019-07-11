@@ -20,6 +20,8 @@ classdef Particles < handle
         parLen  % Particles per hash
         adjHash % List of particles that are adjacent to this
         adjLen  % Particles per adjacency
+        adjRHash% List of particles that are reverse adjacent to this
+        adjRLen % Particles per reverse adjacency
     end
     properties (Dependent)
         dim             % Problem dimensionality

@@ -8,7 +8,12 @@ classdef XSPH < handle
         %-----PHYSICAL QUANTITIES
         fluid
         bound
+        inlet
+        outlet
         %-----INTERACTIONS (Sparse matrices, or cells of it)
+        % Adjacency info
+        F_adj           % Voxel neighbours (fluid to fluid)
+        B_adj           % Voxel neighbours (fluid to border)
         % Fluid to fluid
         Fi_ij           % Index of interaction; i to j
         Fj_ij           % Index of interaction; i to j
@@ -48,6 +53,7 @@ classdef XSPH < handle
         hashSubDim      % Subscript dim for hash
         hashTicks       % Tick values for hashing
         hashAdj         % Adjacent hashes
+        hashAdjRev      % Reverse adjacency
         hashBoundCand   % Boundary candidates for this hash
         hashBoundCandLen
     end
